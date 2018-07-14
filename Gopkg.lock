@@ -2,6 +2,27 @@
 
 
 [[projects]]
+  name = "github.com/go-sql-driver/mysql"
+  packages = ["."]
+  revision = "d523deb1b23d913de5bdada721a6071e71283618"
+  version = "v1.4.0"
+
+[[projects]]
+  name = "github.com/jinzhu/gorm"
+  packages = [
+    ".",
+    "dialects/mysql"
+  ]
+  revision = "6ed508ec6a4ecb3531899a69cbc746ccf65a4166"
+  version = "v1.9.1"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/jinzhu/inflection"
+  packages = ["."]
+  revision = "04140366298a54a039076d798123ffa108fff46c"
+
+[[projects]]
   name = "github.com/labstack/echo"
   packages = ["."]
   revision = "6d227dfea4d2e52cb76856120b3c17f758139b4e"
@@ -55,9 +76,15 @@
   packages = ["unix"]
   revision = "1b2967e3c290b7c545b3db0deeda16e9be4f98a2"
 
+[[projects]]
+  name = "google.golang.org/appengine"
+  packages = ["cloudsql"]
+  revision = "b1f26356af11148e710935ed1ac8a7f5702c7612"
+  version = "v1.1.0"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "709d3b18b53723eb76b75f762857b2a6a57366522f8f171de622032d9de2e187"
+  inputs-digest = "4385af4fa8ff89844276b5a851dd7b90a0716368b5a434a21d115d0f604f55d6"
   solver-name = "gps-cdcl"
   solver-version = 1
