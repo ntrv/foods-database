@@ -13,15 +13,17 @@ type dataSource struct {
 	host    string
 	port    int
 	db_name string
+	option  string
 }
 
 func dataSourceName(config *dataSource) string {
-	return fmt.Sprintf("%s:%s@tcp:(%s:%s)/%s",
+	return fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?%s",
 		config.user,
 		config.pass,
 		config.host,
 		config.port,
 		config.db_name,
+		config.option,
 	)
 }
 
@@ -35,6 +37,7 @@ func NewDBConnect() (*gorm.DB, error) {
 			host:    "127.0.0.1",
 			port:    3306,
 			db_name: "foods_db",
+			option:  "parseTime=true",
 		},
 	))
 	if err != nil {
