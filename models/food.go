@@ -2,7 +2,7 @@ package models
 
 type Food struct {
 	Model
-	Name string `json:name form:name validate:required`
+	Name string `json:name form:name validate:required sql:unique_index`
 }
 
 func (f Food) AllFoods() ([]Food, error) {
