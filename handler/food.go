@@ -17,3 +17,14 @@ func AllFoods() echo.HandlerFunc {
 		return c.JSON(http.StatusOK, foods)
 	}
 }
+
+func RegisterFood() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		food := models.Food{}
+		food.Name = c.FormValue("name")
+		if err := food.RegisterFood(); err != nil {
+			return err
+		}
+		return c.JSON(http.StatusOK, food)
+	}
+}

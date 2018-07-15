@@ -2,7 +2,7 @@ package models
 
 type Food struct {
 	Model
-	Name string `json:name`
+	Name string `json:name form:name validate:required`
 }
 
 func (f Food) AllFoods() ([]Food, error) {
@@ -12,6 +12,16 @@ func (f Food) AllFoods() ([]Food, error) {
 	}
 
 	var foods []Food
-	db.Find(&foods)
+	if err := db.Find(&foods).Error; err != nil {
+		return nil, err
+	}
 	return foods, nil
+}
+
+func (f Food) RegisterFood() error{
+	db, err := NewDBConnect()
+	if err != nil {
+		return err
+	}
+	return db.Debug().Create(&f).Error
 }

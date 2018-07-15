@@ -15,6 +15,7 @@ func main() {
 	// e.Use(middleware.Recover())
 
 	e.GET("/", handler.AllFoods())
+	e.POST("/", handler.RegisterFood())
 
 	s := &http.Server{
 		Addr:         ":1323",
